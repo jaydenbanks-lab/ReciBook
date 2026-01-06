@@ -9,5 +9,9 @@ int main() {
 
     std::cout << "Server running at http://localhost:8080\n";
     app.listen("0.0.0.0", 8080);
+    app.Get("/api/recipes", [](const httplib::Request&, httplib::Response& res) {
+    res.set_content("[]", "application/json");
+});
+
     return 0;
 }
