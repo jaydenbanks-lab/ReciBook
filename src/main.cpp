@@ -1,5 +1,9 @@
 #include <iostream>
 #include "../external/httplib.h"
+#include <vector>
+#include <string>
+
+std::vector<std::string> testRecipes = {"kimchi", "salmon", "chile"};
 
 int main() {
     httplib::Server app;
@@ -10,7 +14,15 @@ int main() {
     std::cout << "Server running at http://localhost:8080\n";
     app.listen("0.0.0.0", 8080);
     app.Get("/api/recipes", [](const httplib::Request&, httplib::Response& res) {
-    res.set_content("[]", "application/json");
+    std::string json = "[";
+
+    for (size_t i = 0; i < testRecipes.size(); ++i) {
+        json += "\"" + testRecipes[i] + "\"";
+        if (i + 1 < testRecipes.size()) json += ",";
+    }
+
+    json += "]";
+    res.set_content(json, "application/json");
 });
 
     return 0;
