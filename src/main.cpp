@@ -12,7 +12,6 @@ int main() {
     app.set_mount_point("/", "./web");
 
     std::cout << "Server running at http://localhost:8080\n";
-    app.listen("0.0.0.0", 8080);
     app.Get("/api/recipes", [](const httplib::Request&, httplib::Response& res) {
     std::string json = "[";
 
@@ -24,6 +23,11 @@ int main() {
     json += "]";
     res.set_content(json, "application/json");
 });
+
+    app.listen("0.0.0.0", 8080);
+
+
+
 
     return 0;
 }
