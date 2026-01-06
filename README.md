@@ -1,4 +1,4 @@
-# Recipe Saver 🍽️
+# Recipe Saver
 
 A C++ recipe management application with a web-based user interface.  
 The backend is written in modern C++ using a vector-based data model, while the frontend is built with HTML, CSS, and JavaScript and served locally via a lightweight HTTP server.
