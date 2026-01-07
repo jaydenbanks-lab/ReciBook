@@ -3,8 +3,10 @@
 #include <string>
 
 struct Recipe {
-    std::string id;
+    std::string id; //to edit or delete entries
     std::string title;
+    int calories = 0;
+
     std::vector<std::string> tags;
     std::vector<std::string> ingredients;
     std::vector<std::string> steps;
