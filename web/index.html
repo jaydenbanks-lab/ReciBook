@@ -1,6 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <body>
-        <h1>Recipe Server Works!</h1>
-    </body>
+<head>
+  <meta charset="utf-8" />
+  <title>Recipe Saver</title>
+  <style>
+    body { font-family: system-ui; margin: 20px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .card { border: 1px solid #ccc; border-radius: 10px; padding: 12px; }
+    .item { padding: 8px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 8px; cursor: pointer; }
+    textarea, input { width: 100%; margin: 6px 0; }
+    textarea { height: 80px; }
+    pre { background: #f5f5f5; padding: 10px; border-radius: 8px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <h1>Recipe Saver</h1>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Recipes</h2>
+      <div id="recipe-list"></div>
+    </div>
+
+    <div class="card">
+      <h2>Add Recipe</h2>
+      <input id="title" placeholder="Title" />
+      <input id="calories" type="number" placeholder="Calories" />
+      <input id="rating" type="number" min="0" max="5" placeholder="Rating (0-5)" />
+
+      <textarea id="ingredients" placeholder="Ingredients (one per line)"></textarea>
+      <textarea id="steps" placeholder="Steps (one per line)"></textarea>
+
+      <button id="add-btn">Add</button>
+
+      <h2>Selected</h2>
+      <pre id="recipe-details">Click a recipe to view details.</pre>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>
